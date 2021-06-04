@@ -4,8 +4,27 @@ import ContentContainer from './ContentContainer';
 
 function TotalContainer() {
 
-  const [currentSection, setCurrentSection] = useState('basic');
+  
   const [totalObject, setTotalObject] = useState({basic: {}, education: {}, work: {}})
+  const [basicClass, setBasicClass] = useState('selected');
+  const [educationClass, setEducationClass] = useState('');
+  const [workClass, setWorkClass] = useState('');
+
+  const changeClass = (section) => {
+    if(section === 'basic') {
+      setBasicClass('selected')
+      setEducationClass('')
+      setWorkClass('')
+    }else if(section === 'education') {
+      setBasicClass('')
+      setEducationClass('selected')
+      setWorkClass('')
+    }else if(section === 'work') {
+      setBasicClass('')
+      setEducationClass('')
+      setWorkClass('selected')
+    }
+  }
 
   useEffect(() => {
     console.log(totalObject)
@@ -13,8 +32,8 @@ function TotalContainer() {
 
   return (
     <div className="total-container">
-      <Navbar setCurrentSection={setCurrentSection}/>
-      <ContentContainer totalObject={totalObject} setTotalObject={setTotalObject} currentSection={currentSection}/>
+      <Navbar basicClass={basicClass} educationClass={educationClass} workClass={workClass} changeClass={changeClass} />
+      <ContentContainer changeClass={changeClass} totalObject={totalObject} setTotalObject={setTotalObject} />
     </div>
   );
 }

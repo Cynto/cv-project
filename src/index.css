@@ -75,7 +75,7 @@ header {
   width: 650.23px;
   padding: 5px 5px 10px 8px;
   border: 1px solid grey;
-  height: 200px;
+  
 }
 
 #basic-section {
@@ -92,6 +92,7 @@ header {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-bottom: 25px;
 }
 .field-input {
   display: flex;
@@ -104,4 +105,8 @@ header {
   width: 301px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+.add-entry {
+  display: flex;
+  justify-content: center;
 }

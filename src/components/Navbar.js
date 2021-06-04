@@ -1,28 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 function Navbar(props) {
-  const [basicClass, setBasicClass] = useState('selected');
-  const [educationClass, setEducationClass] = useState('');
-  const [workClass, setWorkClass] = useState('');
-
-  const setCurrentSection = props.setCurrentSection;
-
-  
+  const { changeClass, basicClass, educationClass, workClass } = props;
 
   return (
     <nav id="navbar">
       <ul id="sections">
         <li id="basic" className={basicClass}>
-          <a
-            className="item"
-            href="#Basic"
-            onClick={() => {
-              setBasicClass('selected');
-              setEducationClass('');
-              setWorkClass('');
-              setCurrentSection('basic')
-            }}
-          >
+          <a className="item" href="#Basic" onClick={() => {changeClass('basic')}}>
             Basic Information
           </a>
         </li>
@@ -30,12 +15,7 @@ function Navbar(props) {
           <a
             className="item"
             href="#Education"
-            onClick={() => {
-              setBasicClass('');
-              setEducationClass('selected');
-              setWorkClass('');
-              setCurrentSection('education')
-            }}
+            onClick={() => {changeClass('education')}}
           >
             Education
           </a>
@@ -44,12 +24,7 @@ function Navbar(props) {
           <a
             className="item"
             href="#Work"
-            onClick={() => {
-              setBasicClass('');
-              setEducationClass('');
-              setWorkClass('selected');
-              setCurrentSection('work')
-            }}
+            onClick={() => {changeClass('work')}}
           >
             Work Experience
           </a>

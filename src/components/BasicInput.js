@@ -26,7 +26,6 @@ function BasicInput(props) {
           type="text"
           maxLength="100"
           onChange={(e) => handleChange(e)}
-          placeholder={() => basicObject.name}
         ></input>
       </div>
       <div className="field-input">

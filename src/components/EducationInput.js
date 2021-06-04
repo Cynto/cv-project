@@ -3,9 +3,13 @@ import React, { useState } from 'react';
 function EducationInput(props) {
   const [educationObject, setEducationObject] = useState({});
 
+  const educationArray = []
+
   const handleChange = (e) => {
     const input = e.target.value;
     const id = e.target.id;
+    
+    
     if (id === 'course') {
       setEducationObject({ ...educationObject, course: input });
     } else if (id === 'institution') {
@@ -14,11 +18,14 @@ function EducationInput(props) {
       setEducationObject({ ...educationObject, startDate: input });
     } else setEducationObject({ ...educationObject, endDate: input });
     
-    props.setTotalObject({...props.totalObject, education: educationObject})
+    educationArray[props.index] = educationObject
+    console.log(educationArray[0])
+    props.setTotalObject({ ...props.totalObject, education: educationArray });
   };
 
   return (
     <div className="field-input-container">
+      
       <div className="field-input">
         <label>Course Name</label>
         <input

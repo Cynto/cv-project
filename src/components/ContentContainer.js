@@ -4,24 +4,14 @@ import EducationSection from './EducationSection';
 import WorkSection from './WorkSection';
 
 function ContentContainer(props) {
-  if (props.currentSection === 'basic') {
-    return (
-      <form className="cv-form">
-        <BasicSection totalObject={props.totalObject} setTotalObject={props.setTotalObject}/>{' '}
-      </form>
-    );
-  } else if (props.currentSection === 'education') {
-    return (
-      <form className="cv-form">
-        <EducationSection totalObject={props.totalObject} setTotalObject={props.setTotalObject}/>{' '}
-      </form>
-    );
-  } else
-    return (
-      <form className="cv-form">
-        <WorkSection totalObject={props.totalObject} setTotalObject={props.setTotalObject}/>
-      </form>
-    );
+  
+  return(
+    <form className="cv-form">
+      <BasicSection changeClass={props.changeClass} totalObject={props.totalObject} setTotalObject={props.setTotalObject}/>{' '}
+      <EducationSection changeClass={props.changeClass}  totalObject={props.totalObject} setTotalObject={props.setTotalObject}/>{' '}
+      <WorkSection changeClass={props.changeClass} totalObject={props.totalObject} setTotalObject={props.setTotalObject}/>
+    </form>
+  )
 }
 
 export default ContentContainer;
