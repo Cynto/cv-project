@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function WorkInput(props) {
   const [workObject, setWorkObject] = useState({});
+
+  const { totalObject, setTotalObject, workArray, setWorkArray } = props;
 
   const handleChange = (e) => {
     const input = e.target.value;
@@ -14,15 +16,27 @@ function WorkInput(props) {
       setWorkObject({ ...workObject, start: input });
     } else setWorkObject({ ...workObject, end: input });
 
-    props.setTotalObject({ ...props.totalObject, work: workObject });
+    
   };
+
+  useEffect(() => {
+    setWorkArray((oldArray) => {
+      oldArray[props.index] = workObject;
+      return oldArray;
+    });
+    setTotalObject({ ...totalObject, work: workArray });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [workObject, workArray]);
 
   return (
     <div className="field-input-container">
-      
       <div className="field-input">
         <label>Job Title</label>
-        <input id="job-title" type="text" onChange={(e) => handleChange(e)}></input>
+        <input
+          id="job-title"
+          type="text"
+          onChange={(e) => handleChange(e)}
+        ></input>
       </div>
       <div className="field-input">
         <label>Company Name</label>

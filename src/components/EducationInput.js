@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function EducationInput(props) {
   const [educationObject, setEducationObject] = useState({});
 
-  const educationArray = []
+  const { setTotalObject, totalObject, educationArray } = props;
 
   const handleChange = (e) => {
     const input = e.target.value;
     const id = e.target.id;
-    
-    
+
     if (id === 'course') {
       setEducationObject({ ...educationObject, course: input });
     } else if (id === 'institution') {
@@ -17,15 +16,21 @@ function EducationInput(props) {
     } else if (id === 'start-date') {
       setEducationObject({ ...educationObject, startDate: input });
     } else setEducationObject({ ...educationObject, endDate: input });
+
     
-    educationArray[props.index] = educationObject
-    console.log(educationArray[0])
-    props.setTotalObject({ ...props.totalObject, education: educationArray });
   };
+
+  useEffect(() => {
+    props.setEducationArray((oldArray) => {
+      oldArray[props.index] = educationObject;
+      return oldArray;
+    });
+    setTotalObject({ ...totalObject, education: educationArray });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [educationObject, educationArray]);
 
   return (
     <div className="field-input-container">
-      
       <div className="field-input">
         <label>Course Name</label>
         <input

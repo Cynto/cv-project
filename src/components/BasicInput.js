@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function BasicInput(props) {
   const [basicObject, setBasicObject] = useState({});
+
+  const { setTotalObject, totalObject } = props;
 
   const handleChange = (e) => {
     const input = e.target.value;
@@ -12,10 +14,14 @@ function BasicInput(props) {
       setBasicObject({ ...basicObject, email: input });
     } else if (id === 'phone') {
       setBasicObject({ ...basicObject, phone: input });
-    } else setBasicObject({ ...basicObject, address: input });
-    
-    props.setTotalObject({...props.totalObject, basic: basicObject})
+    } else if (id === 'address') {
+      setBasicObject({ ...basicObject, address: input });
+    } else setBasicObject({ ...basicObject, desc: input });
   };
+  useEffect(() => {
+    setTotalObject({ ...totalObject, basic: basicObject });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [basicObject]);
 
   return (
     <div className="field-input-container">
@@ -54,6 +60,14 @@ function BasicInput(props) {
           maxLength="100"
           onChange={(e) => handleChange(e)}
         ></input>
+      </div>
+      <div className="field-input">
+        <label>Description</label>
+        <textarea
+          name="description"
+          id="desc"
+          onChange={(e) => handleChange(e)}
+        ></textarea>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 function Navbar(props) {
-  const { changeClass, basicClass, educationClass, workClass } = props;
+  const { changeClass, basicClass, educationClass, workClass, previewClass } = props;
 
   return (
     <nav id="navbar">
@@ -28,6 +28,14 @@ function Navbar(props) {
           >
             Work Experience
           </a>
+        </li>
+        <li id="preview" className={previewClass}>
+          <a if="preview"
+            className="item"
+            href="#Preview"
+            onClick={() => {changeClass('preview')}}>
+              Preview
+            </a>
         </li>
       </ul>
     </nav>
