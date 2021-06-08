@@ -7,11 +7,11 @@ function EducationSectionCV(props) {
         <h3>Education</h3>
         {props.totalObject.education.map(item => {
           return(
-          <div key={uniqid()}>
+          <span key={uniqid()}>
             {(item.course) ?
-            <p>{item.course} - {item.startDate} - {item.institution}</p> : null}
+            <h4>{item.course} - {item.institution}</h4>: null} {(item.startDate) ? <p> - {item.startDate}</p> : null }
             
-          </div>)
+          </span>)
         })}
     </div>
   )

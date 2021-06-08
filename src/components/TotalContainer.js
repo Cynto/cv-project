@@ -1,7 +1,9 @@
-import React, { useState} from 'react';
+import React, { useState, useRef} from 'react';
 import Navbar from './Navbar';
 import ContentContainer from './ContentContainer';
 import PreviewCV from './PreviewCV'
+import { useReactToPrint } from 'react-to-print';
+
 
 function TotalContainer() {
 
@@ -35,12 +37,18 @@ function TotalContainer() {
       setPreviewClass('selected')
     }
   }
+  const componentRef = useRef();
+  const printCV = useReactToPrint({
+    content: () => componentRef.current,
+  })
 
   return (
     <div className="total-container">
-      <Navbar previewClass={previewClass} basicClass={basicClass} educationClass={educationClass} workClass={workClass} changeClass={changeClass} />
+      <Navbar printCV={printCV} previewClass={previewClass} basicClass={basicClass} educationClass={educationClass} workClass={workClass} changeClass={changeClass} />
       <ContentContainer changeClass={changeClass} totalObject={totalObject} setTotalObject={setTotalObject} />
-      <PreviewCV totalObject={totalObject}/>
+      <div className="cv-container" ref={componentRef}>
+        <PreviewCV totalObject={totalObject}/>
+      </div>
     </div>
   );
 }

@@ -69,6 +69,10 @@ header {
   margin-top: 50px;
   
 }
+#print-cv {
+  margin-top: 635px;
+  cursor: pointer;
+}
 
 .selected {
 }
@@ -136,11 +140,12 @@ header {
 }
 
 /* CV Section */
-
+.cv-container {
+  margin-left: 213.5px;
+}
 #Preview {
   width: 650.23px;
   padding: 5px 5px 10px 8px;
-  margin-left: 222px;
   margin-top: 30px;
   display: flex;
   height: 700px;
@@ -242,9 +247,17 @@ header {
   border-bottom: 1px solid grey;
   padding: 2px;
 }
+.education-container h4 {
+  font-weight: bolder;
+  font-size: 12px;
+}
 .education-container p {
   font-size: 13px;
-  margin-bottom: 15px;
+  
+  
+}
+.education-container span {
+  display: flex;
   padding: 4px;
 }
 

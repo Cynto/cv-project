@@ -37,6 +37,13 @@ function Navbar(props) {
               Preview
             </a>
         </li>
+        <li id="print-cv">
+          <a 
+          href="#Print"
+          onClick={() => {props.printCV()}}>
+            Print CV
+          </a>
+          </li>
       </ul>
     </nav>
   );
