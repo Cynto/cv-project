@@ -44,10 +44,16 @@ function TotalContainer() {
 
   return (
     <div className="total-container">
-      <Navbar printCV={printCV} previewClass={previewClass} basicClass={basicClass} educationClass={educationClass} workClass={workClass} changeClass={changeClass} />
-      <ContentContainer changeClass={changeClass} totalObject={totalObject} setTotalObject={setTotalObject} />
-      <div className="cv-container" ref={componentRef}>
-        <PreviewCV totalObject={totalObject}/>
+      <div className="top-container">
+        <Navbar printCV={printCV} previewClass={previewClass} basicClass={basicClass} educationClass={educationClass} workClass={workClass} changeClass={changeClass} />
+        <ContentContainer changeClass={changeClass} totalObject={totalObject} setTotalObject={setTotalObject} />
+      </div>
+      <div className="bottom-container">
+        <button onClick={printCV}>Print CV</button>
+        <div className="cv-container" ref={componentRef}>
+          <PreviewCV totalObject={totalObject}/>
+        </div>
+        
       </div>
     </div>
   );
