@@ -2,6 +2,8 @@ import React from 'react';
 import uniqid from 'uniqid'
 
 function WorkSectionCV(props) {
+
+
   return (
     <div className="work-container">
       <h3>Work Experience</h3>

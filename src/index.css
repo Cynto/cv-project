@@ -45,9 +45,9 @@ header {
 .top-container {
   display: flex;
   justify-content: center;
-  padding: 15px;
+  padding-bottom: 50px;
   padding-top: 100px;
-  flex-wrap: wrap;
+  
   width: 100%;
 }
 #navbar {
@@ -102,6 +102,16 @@ header {
 .section-title {
   margin-bottom: 20px;
   color: rgb(82, 81, 81);
+}
+.delete-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  margin-top: -15px;
+}
+.delete-button-container button {
+  cursor: pointer;
 }
 .field-input-container {
   display: flex;
@@ -233,7 +243,7 @@ header {
   font-weight: bolder;
 }
 .info-container p {
-  font-size: 11px;
+  font-size: 15px;
   text-decoration: underline;
 }
 
@@ -275,10 +285,10 @@ header {
 }
 .education-container h4 {
   font-weight: bolder;
-  font-size: 12px;
+  font-size: 15px;
 }
 .education-container p {
-  font-size: 13px;
+  font-size: 15px;
   
   
 }
@@ -301,10 +311,11 @@ header {
 }
 .work-container h4 {
   font-weight: bolder;
+  font-size: 15px;
 }
 .work-container span {
   display:flex;
   padding: 4px;
-  font-size: 13px;
-  margin-bottom: 15px;
+  font-size: 15px;
+  
 }

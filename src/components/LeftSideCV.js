@@ -5,8 +5,7 @@ function LeftSideCV(props) {
 
   const {totalObject} = props
 
-  const nameArray = totalObject.basic.name.split(' ')
-  console.log(nameArray)
+  const nameArray = (totalObject.basic.name) ? totalObject.basic.name.split(' ') : ['', '']
 
   return (
     <div className="left-cv">
