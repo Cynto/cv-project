@@ -319,3 +319,54 @@ header {
   font-size: 15px;
   
 }
+
+
+@media only screen and (max-width: 600px) { 
+  html {
+    width: 100%;
+  }
+  .App {
+    width: 400px;
+  }
+  header {
+    width: 100%;
+  }
+  nav {
+    display: none;
+  }
+  .cv-form {
+    width: 500px;
+  }
+  textarea {
+    width: 300px;
+  }
+  #desc {
+    width: 300px;
+  }
+
+
+  .bottom-container button {
+    display: none;
+  }
+
+  .cv-container {
+    width: 400px;
+  }
+  #Preview {
+    width: 400px;
+  }
+  .left-cv {
+
+  }
+  .name-container {
+    margin-left: 15px;
+  }
+  .name-container h1 {
+    font-size: 20px;
+  }
+  .info-container p {
+    font-size: 8px;
+    text-decoration: none;
+  }
+}
+
